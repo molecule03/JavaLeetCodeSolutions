@@ -19,25 +19,21 @@ public class Solution {
         ListNode slow = dummy;
         ListNode fast = dummy;
         
-        boolean flag = false;
+        // boolean flag = false;
         while(fast != null && fast.next != null){
             slow = slow.next;
             fast = fast.next.next;
             
             if(slow == fast){
-                flag = true;
-                break;
+                fast = dummy;
+                while(fast != slow){
+                    slow = slow.next;
+                    fast = fast.next;
+                 }
+                 return fast;
             }    
         }
 
-        if(flag){
-            fast = dummy;
-            while(fast != slow){
-                slow = slow.next;
-                fast = fast.next;
-            }
-            return fast;
-        }
         
         return null;
     }
