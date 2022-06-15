@@ -8,7 +8,7 @@ class Solution {
                 break;
             }
         }
-        // System.out.println(nums[low]+" "+low);
+        
         int high = low+1;
         while(low>=0 && high<nums.length){
             if(nums[low]==0 && nums[high]==0){
