@@ -1,61 +1,49 @@
 class Solution {
     public String largestPalindromic(String num) {
-        
-        Map<Character, Integer> map = new HashMap<>();
-        TreeSet<Character> set = new TreeSet<>((a,b)->b-a);
-        for(char c : num.toCharArray()){
+        HashMap<Character, Integer> map = new HashMap<>();
+        HashSet<Character> set = new HashSet<>();
+        PriorityQueue<Character> pq = new PriorityQueue<>(Collections.reverseOrder());
+        for(char c: num.toCharArray()){
             map.put(c, map.getOrDefault(c, 0)+1);
-            set.add(c);
+            if(!set.contains(c)){
+                set.add(c);
+                pq.add(c);
+            }
         }
-        
-        if(set.size() == 1 && set.contains('0')) return ""+0;
-        
         StringBuilder sb = new StringBuilder();
-        char mid = 'l';
-        while(!set.isEmpty()){
-            char c = set.pollFirst();
-            int freq = map.get(c);
-            
-            if(freq%2 == 0 || mid != 'l'){
-                for(int i=0; i<freq/2; i++){
-                    sb.append(c);
+        char mid = '|';
+        while(!pq.isEmpty())
+        {
+            char ele = pq.remove();
+            int freq = map.get(ele);
+            if(freq%2==0){
+                for(int i = 0; i<freq/2; i++){
+                    sb.append(ele);
                 }
             }
-            else {
-                for(int i=0; i<freq/2; i++){
-                    sb.append(c);
+            else{
+                for(int i = 0; i<freq/2; i++){
+                    sb.append(ele);
                 }
-                if(mid == 'l'){
-                    mid = c;
-                }
+                if(mid =='|')
+                mid = ele;
             }
         }
         
+        String str = sb.toString();
+        if(mid != '|')
+            sb.append(mid);
+        sb.append(new StringBuilder(str).reverse().toString());
+        return removeZero(sb.toString());
         
-        
-        String start = sb.toString();
-        start = removeLeadingZeros(start);
-        
-        sb = new StringBuilder(start);
-        String last = sb.reverse().toString();
-        
-        String middle = (mid != 'l') ? ""+mid : "";
-        
-        String pal = start+middle+last;
-        
-        return pal;
     }
     
-    private String removeLeadingZeros(String start){
-        if(start.length() == 0) return "";
-        
-        int i = 0;
-        for(i = 0; i<start.length(); i++){
-            if(start.charAt(i) != '0'){
-                break;
-            }
-        }
-        
-        return start.substring(i);
+    String removeZero(String str){
+        int cur = 0;
+        while(cur<str.length() && str.charAt(cur)=='0')
+            cur++;
+        if(cur == str.length())
+            return "0";
+        return str.substring(cur, str.length() -cur);
     }
 }
