@@ -1,11 +1,8 @@
 class Solution {
     public String largestPalindromic(String num) {
         
-        
-        HashMap<Character, Integer> map = new HashMap<>();
+        Map<Character, Integer> map = new HashMap<>();
         TreeSet<Character> set = new TreeSet<>((a,b)->b-a);
-
-        
         for(char c : num.toCharArray()){
             map.put(c, map.getOrDefault(c, 0)+1);
             set.add(c);
@@ -38,8 +35,10 @@ class Solution {
         
         String start = sb.toString();
         start = removeLeadingZeros(start);
+        
         sb = new StringBuilder(start);
         String last = sb.reverse().toString();
+        
         String middle = (mid != 'l') ? ""+mid : "";
         
         String pal = start+middle+last;
