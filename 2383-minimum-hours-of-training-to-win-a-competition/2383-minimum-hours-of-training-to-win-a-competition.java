@@ -21,9 +21,8 @@ class Solution {
                 ix += i;
             }
             else{
-                // System.out.println(i+" "+X);
-                int x = i+1;
-                exp += (x-ix);
+                // int x = i+1;
+                exp += (i+1-ix);
                 ix += exp+i;
             }
         }
@@ -32,13 +31,7 @@ class Solution {
        return ene+exp;
     }
 }
-
-// 1 [1,1,1,1]  = 4
-
-
-// 1
-// [1,1,1,50]  =
-        
+  
 
 
 
