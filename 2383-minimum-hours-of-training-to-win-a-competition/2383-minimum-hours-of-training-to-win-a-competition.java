@@ -22,7 +22,7 @@ class Solution {
             }
             else{
                 // int x = i+1;
-                exp += (i+1-ix);
+                exp += (i-ix)+1;
                 ix += exp+i;
             }
         }
