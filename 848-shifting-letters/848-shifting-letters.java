@@ -12,7 +12,7 @@ class Solution {
             int move = shifts[i]%26;
             
             if(arr[i]-'a'+move > 25){
-                move = arr[i]-'a'+move - 26;
+                move = (arr[i]-'a'+move)%26;
                 arr[i] = 'a';
             }
             
