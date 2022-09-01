@@ -20,15 +20,20 @@ class Solution {
         char ch[] = s.toCharArray();
         for(int i=0; i<n; i++){
             
-            int increase = (ch[i]-'a'+offsets[i])%26;
+            int move = offsets[i]%26;
             
-            increase = (increase+26)%26;
+            if(ch[i]-'a'+move > 25){
+                move = (ch[i]-'a'+move) % 26;
+                ch[i] = 'a';
+            }
+            else if(ch[i]-'a'+move < 0){
+                move = ((ch[i]-'a'+move) % 26)+1;
+                ch[i] = 'z';
+            }
             
-            ch[i] = (char)(97+(increase%26));
+            ch[i] += move;
         }
         
-        
-          // System.out.println(Arrays.toString(offsets));
         
         return String.valueOf(ch);
     }
