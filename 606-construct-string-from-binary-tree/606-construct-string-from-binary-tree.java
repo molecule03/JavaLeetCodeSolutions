@@ -29,12 +29,14 @@ class Solution {
         if(root == null) return;
         
         sb.append(root.val);
-        if(root.left != null || root.right != null)sb.append('(');
+        
+        if(root.left != null || root.right != null) sb.append('(');
         dfs(root.left);
-        if(root.left != null || root.right != null)sb.append(')');
-        if(root.right != null)sb.append('(');
+        if(root.left != null || root.right != null) sb.append(')');
+        
+        if(root.right != null) sb.append('(');
         dfs(root.right);
-        if(root.right != null)sb.append(')');
+        if(root.right != null) sb.append(')');
       
         
         return;
