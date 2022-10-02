@@ -40,7 +40,7 @@ class Solution {
             sb.append('1');
             count--;
         }
-          System.out.println(a+" "+b+" "+sb.toString());
+          // System.out.println(a+" "+b+" "+sb.toString());
         int ans = integerfrmbinary(sb.toString());
         return ans;
     }
