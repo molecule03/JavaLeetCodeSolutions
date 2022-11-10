@@ -17,7 +17,7 @@ class Solution {
             }
         }
         
-        System.out.println(st);
+        // System.out.println(st);
         StringBuilder sb = new StringBuilder();
         for(char c : st){
             sb.append(c);
