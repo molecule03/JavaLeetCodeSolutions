@@ -14,25 +14,27 @@
  * }
  */
 class Solution {
-    int count;
     public int countNodes(TreeNode root) {
+        if(root == null) return 0;
         
+        int left = getleft(root);
+        int right = getright(root);
         
-        count = 0;
+        if(left == right) return (int)Math.pow(2, left)-1;
         
-        dfs(root);
+        return 1+countNodes(root.left)+countNodes(root.right);
         
-        return count;
     }
     
-    public void dfs(TreeNode root){
-        if(root == null) return;
+    private int getleft(TreeNode root){
+        if(root == null) return 0;
         
-        count++;
-        dfs(root.left);
-        dfs(root.right);
+        return 1+getleft(root.left);
+    }
+    
+    private int getright(TreeNode root){
+        if(root == null) return 0;
         
-        
-        return;
+        return 1+getright(root.right);
     }
 }
