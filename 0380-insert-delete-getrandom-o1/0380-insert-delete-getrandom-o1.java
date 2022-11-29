@@ -2,16 +2,14 @@ class RandomizedSet {
 
     List<Integer> list;
     int idx;
-    java.util.Random rand = new java.util.Random();
+    Random rand = new Random();
     public RandomizedSet() {
         list = new ArrayList<>();
-        idx = 0;
     }
     
     public boolean insert(int val) {
         if(!list.contains(val)){
             list.add(val);
-            idx++;
             return true;
         }
         
@@ -21,20 +19,16 @@ class RandomizedSet {
     public boolean remove(int val) {
         if(list.contains(val)){
             list.remove(Integer.valueOf(val));
-              idx--;
             return true;
         }
         return false;
     }
     
     public int getRandom() {
-        
-   return list.get( rand.nextInt(list.size()) );
+        return list.get(rand.nextInt(list.size()) );
     }
     
-    public int getRandomNumber(int min, int max) {
-        return (int) ((Math.random() * (max - min)) + min);
-    }
+
 }
 
 /**
