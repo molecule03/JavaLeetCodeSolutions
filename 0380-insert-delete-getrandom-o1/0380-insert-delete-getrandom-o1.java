@@ -3,6 +3,7 @@ class RandomizedSet {
     List<Integer> list;
     Random rand;
     Set<Integer> set;
+    // Map<Integer> map;
     
     public RandomizedSet() {
         list = new ArrayList<>();
