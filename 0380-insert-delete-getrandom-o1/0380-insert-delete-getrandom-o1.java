@@ -1,10 +1,10 @@
 class RandomizedSet {
 
     List<Integer> list;
-    int idx;
-    Random rand = new Random();
+    Random rand;
     public RandomizedSet() {
         list = new ArrayList<>();
+        rand = new Random();
     }
     
     public boolean insert(int val) {
