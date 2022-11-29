@@ -1,1 +1,1 @@
-​
+try to reduce time try using map instead of set and store the indices of every val int the list
