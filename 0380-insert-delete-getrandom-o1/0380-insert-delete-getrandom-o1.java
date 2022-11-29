@@ -15,7 +15,6 @@ class RandomizedSet {
             list.add(val);
             return true;
         }
-        
         return false;
     }
     
