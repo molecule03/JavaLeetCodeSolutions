@@ -2,13 +2,16 @@ class RandomizedSet {
 
     List<Integer> list;
     Random rand;
+    Set<Integer> set;
     public RandomizedSet() {
         list = new ArrayList<>();
         rand = new Random();
+        set = new HashSet<>();
     }
     
     public boolean insert(int val) {
-        if(!list.contains(val)){
+        if(!set.contains(val)){
+            set.add(val);
             list.add(val);
             return true;
         }
@@ -17,8 +20,9 @@ class RandomizedSet {
     }
     
     public boolean remove(int val) {
-        if(list.contains(val)){
+        if(set.contains(val)){
             list.remove(Integer.valueOf(val));
+            set.remove(val);
             return true;
         }
         return false;
