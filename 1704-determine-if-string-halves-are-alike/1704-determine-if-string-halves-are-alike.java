@@ -20,7 +20,7 @@ class Solution {
             if(set.contains(cur)) right++;
         }
         
-        System.out.println(left+" "+right);
+        // System.out.println(left+" "+right);
         return left == right ? true : false;
     }
 }
