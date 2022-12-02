@@ -22,7 +22,7 @@ class Solution {
             // System.out.println("23");
             return false;
         }
-        System.out.println(list1+" "+list2);
+        // System.out.println(list1+" "+list2);
         Collections.sort(list1);
         Collections.sort(list2);
         
