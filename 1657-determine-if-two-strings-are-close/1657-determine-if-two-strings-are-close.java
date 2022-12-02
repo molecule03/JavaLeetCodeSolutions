@@ -22,15 +22,17 @@ class Solution {
             // System.out.println("23");
             return false;
         }
-        // System.out.println(list1+" "+list2);
-           Collections.sort(list1);
+        System.out.println(list1+" "+list2);
+        Collections.sort(list1);
         Collections.sort(list2);
-        for(int i=0; i<list1.size(); i++){
-            if((int)list1.get(i) != (int)list2.get(i)){
-                 // System.out.println("29");
-                return false;
-        }
-        }
+        
+        if(!list1.equals(list2)) return false;
+        // for(int i=0; i<list1.size(); i++){
+        //     if(!list1.get(i).equals(list2.get(i))){
+        //          System.out.println("29"+" "+i);
+        //         return false;
+        //     }
+        // }
         
         Set<Character> set1 = new HashSet<>();
         Set<Character> set2 = new HashSet<>();
