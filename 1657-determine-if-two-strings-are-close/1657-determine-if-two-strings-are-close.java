@@ -19,15 +19,15 @@ class Solution {
      
         
         if(list1.size() != list2.size()) {
-            System.out.println("23");
+            // System.out.println("23");
             return false;
         }
-        System.out.println(list1+" "+list2);
+        // System.out.println(list1+" "+list2);
            Collections.sort(list1);
         Collections.sort(list2);
         for(int i=0; i<list1.size(); i++){
             if((int)list1.get(i) != (int)list2.get(i)){
-                 System.out.println("29");
+                 // System.out.println("29");
                 return false;
         }
         }
@@ -40,13 +40,13 @@ class Solution {
         
         for(char c : word1.toCharArray()){
             if(!set2.contains(c)){
-                 System.out.println("42");
+                 // System.out.println("42");
                 return false;
             }
         }
         for(char c : word2.toCharArray()){
             if(!set1.contains(c)) {
-                 System.out.println("48");
+                 // System.out.println("48");
                 return false;
             }
         }
