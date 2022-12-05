@@ -11,33 +11,49 @@
 class Solution {
     public int pairSum(ListNode head) {
         
-        ListNode cur = head;
-        int length = 0;
-        while(cur != null){
-            cur = cur.next;
-            length++;
+        
+        ListNode left = head;
+        ListNode right = head.next;
+        int ans = Integer.MIN_VALUE;
+        
+        while(right != null && right.next != null){
+            left = left.next;
+            right = right.next.next;
         }
-        int half = length/2;
+        // System.out.println(right.val+" "+left.val);
         
-        Stack<Integer> st = new Stack<>();
-       
-        cur = head;
-        int count = 0;
-        while(count < half){
-            st.push(cur.val);
-            cur = cur.next;
-            count++;
+        ListNode prev = null;
+        ListNode cur = left.next;
+        // System.out.println(cur.val+" "+27);
+        left.next = null;
+        while(cur != right){
+            ListNode next = cur.next;
+            // System.out.print(cur.val+" ");
+            cur.next = prev;
+            // next.next = cur;
+            
+            prev = cur;
+            cur = next;
+        }
+        cur.next = prev;
+        
+        // System.out.println(head+" "+right);
+        // while(head != null){
+        //     System.out.print(head.val+" ");
+        //     head = head.next;
+        // }
+        // System.out.println("");
+        // while(right != null){
+        //     System.out.print(right.val+" ");
+        //     right = right.next;
+        // }
+        left = head;
+        while(left != null && right != null){
+            ans = Math.max(ans, left.val+right.val);
+            left = left.next;
+            right = right.next;
         }
         
-        
-        int res = Integer.MIN_VALUE;
-        while(cur != null){
-            int sum = st.pop()+cur.val;
-            res = Math.max(res, sum);
-            cur = cur.next;
-        }
-        
-        
-        return res;
+        return ans;
     }
 }
