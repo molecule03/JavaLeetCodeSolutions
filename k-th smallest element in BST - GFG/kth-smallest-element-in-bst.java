@@ -111,7 +111,7 @@ class Solution {
         
         inorder(root);
         Collections.sort(list);
-        return (K < list.size()) ? list.get(K-1) : -1;
+        return (K-1 < list.size()) ? list.get(K-1) : -1;
     }
     
     private void inorder(Node root){
