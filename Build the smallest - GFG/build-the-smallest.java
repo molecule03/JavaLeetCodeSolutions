@@ -36,27 +36,17 @@ class Solution {
                 N--;
                 if(N <= 0) break;
             }
-            // if(N<=)
             
             st.push(c);
             if(N == 0) break;
         }
         
-        for(int j=i+1; j<str.length(); j++){
-            st.push(str.charAt(j));
-        }
+        for(int j=i+1; j<str.length(); j++) st.push(str.charAt(j));
         
-        while(N > 0){
-            st.pop();
-            N--;
-        }
+        while(N-- > 0) st.pop();
         
         StringBuilder sb = new StringBuilder();
-        for(char c : st){
-            sb.append(c);
-        }
-        
-        
+        for(char c : st)sb.append(c);
         while(true){
             if(sb.length() > 0 && sb.charAt(0) == '0'){
                 sb.deleteCharAt(0);
