@@ -25,33 +25,18 @@ class GFG{
 class Solution{
 	int minSteps(String str) {
 		//Write your code here
-		int ac = 0;
-		int bc = 0;
+		int count = 1;
+		char p = str.charAt(0);
 		
-		StringBuilder sb = new StringBuilder();
-		for(char c : str.toCharArray()){
-		    if(c == 'a'){
-		        sb.append(c);
+		for(int i=1; i<str.length(); i++){
+		    char c = str.charAt(i);
+		    
+		    if(c != p){
+		        count++;
 		    }
-		    else if(!sb.toString().isEmpty()){
-		        ac++;
-		        sb = new StringBuilder();
-		    }
+		    p = c;
 		}
-		if(!sb.toString().isEmpty() && sb.toString().contains("a")) ac++;
 		
-		sb = new StringBuilder();
-			for(char c : str.toCharArray()){
-		    if(c == 'b'){
-		        sb.append(c);
-		    }
-		    else if(!sb.toString().isEmpty()){
-		        bc++;
-		        sb = new StringBuilder();
-		    }
-		}
-		if(!sb.toString().isEmpty() && sb.toString().contains("b")) bc++;
-		
-		return Math.min(ac, bc)+1;
+		return (count/2)+1;
 	}
 }
